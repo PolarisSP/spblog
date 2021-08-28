@@ -1,0 +1,61 @@
+package xin.spgraceme.spblog.entity;
+
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import java.time.LocalDateTime;
+import java.io.Serializable;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+/**
+ * <p>
+ * 
+ * </p>
+ *
+ * @author spgraceme
+ * @since 2021-08-27
+ */
+@Data
+@EqualsAndHashCode(callSuper = false)
+public class MUserMessage implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @TableId(value = "id", type = IdType.AUTO)
+    private Long id;
+
+    /**
+     * 发送消息的用户ID
+     */
+    private Long fromUserId;
+
+    /**
+     * 接收消息的用户ID
+     */
+    private Long toUserId;
+
+    /**
+     * 消息可能关联的帖子
+     */
+    private Long postId;
+
+    /**
+     * 消息可能关联的评论
+     */
+    private Long commentId;
+
+    private String content;
+
+    /**
+     * 消息类型
+     */
+    private Integer type;
+
+    private LocalDateTime created;
+
+    private LocalDateTime modified;
+
+    private Integer status;
+
+
+}
